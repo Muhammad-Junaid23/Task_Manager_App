@@ -25,7 +25,10 @@ const limiter = rateLimit({
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://your-frontend.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://task-manager-app-wine-one.vercel.app",
+    ],
     credentials: true,
   }),
 );
