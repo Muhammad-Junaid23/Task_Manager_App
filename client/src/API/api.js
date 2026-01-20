@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_BASE =
   import.meta.env.MODE === "production"
-    ? "taskmanagerapp-production-a93a.up.railway.app/api"
+    ? "https://taskmanagerapp-production-a93a.up.railway.app/api"
     : "/api";
 
 const API = axios.create({
