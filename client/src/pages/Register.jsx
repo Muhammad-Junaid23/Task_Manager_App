@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
+import { authApi } from "../API/api";
 import "../assets/css/auth.css";
 
 const Register = () => {
@@ -21,18 +22,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:4044/api/users/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
-      });
-
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.message || "Invalid email or password");
-      }
-      const data = await res.json();
-      console.log("registered data", data);
+      const res = await authApi.register({ name, email, password });
       showToast("Register successful!", "success");
       setName("");
       setEmail("");

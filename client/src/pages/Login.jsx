@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
+import { authApi } from "../API/api";
 import "../assets/css/auth.css";
 
 const Login = () => {
@@ -21,18 +22,9 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:4044/api/users/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        throw new Error(err.message || "Invalid email or password");
-      }
-      const data = await res.json();
-      login(data.token, data.user);
+      const res = await authApi.login({ email, password });
+      const { token, user } = res.data;
+      login(token, user);
       showToast("login successful!", "success");
       setEmail("");
       setPassword("");
