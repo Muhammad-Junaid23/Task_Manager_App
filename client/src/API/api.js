@@ -3,7 +3,7 @@ import axios from "axios";
 const API_BASE =
   import.meta.env.MODE === "production"
     ? "taskmanagerapp-production-a93a.up.railway.app/api"
-    : "http://localhost:4044/api";
+    : "/api";
 
 const API = axios.create({
   baseURL: API_BASE,
@@ -18,6 +18,7 @@ API.interceptors.request.use((config) => {
 });
 
 export const authApi = {
+  profile: () => API.get("/users/profile"),
   login: (credentials) => API.post("/users/login", credentials),
   register: (userData) => API.post("/users", userData),
 };
