@@ -1,16 +1,33 @@
-# React + Vite
+# Task Manager App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack task management application built with the MERN stack.
 
-Currently, two official plugins are available:
+<img src="./client/public/Task-Manager-App.png" width="100%" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- Secure JWT authentication (login/register)
+- Create, read, update, delete tasks
+- Mark tasks as complete/incomplete
+- Responsive UI with real-time updates
+- Optimistic UI for smooth UX
+- Toast notifications for feedback
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React, Vite, Axios, Context API
+- **Backend**: Node.js, Express, MongoDB (Atlas)
+- **Deployment**: Vercel (frontend), Railway (backend)
+- **Auth**: JWT, bcrypt, protected routes, Zod
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Live Demo
+
+- **Web App**: https://task-manager-app-wine-one.vercel.app
+
+## 📥 Local Setup
+
+1. Clone repo
+2. `cd server && npm install`
+3. Create `.env` with `MONGO_URI` and `JWT_TOKEN_SECRET`
+4. `npm run dev`
+5. `cd client && npm install && npm run dev`
