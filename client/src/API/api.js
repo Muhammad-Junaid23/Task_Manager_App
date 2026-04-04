@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_BASE =
   import.meta.env.MODE === "production"
-    ? "https://taskmanagerapp-production-a93a.up.railway.app/api"
+    ? "https://task-manager-api-gy5d.onrender.com/api"
     : "/api";
 
 const API = axios.create({
